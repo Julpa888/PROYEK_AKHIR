@@ -1,48 +1,18 @@
 from prettytable import PrettyTable
-from drama import DramaManager
+from admin_menu import AdminManager
 from storage import Storage
 
 class UserManager:
-    def _init_(self):
-        self.drama_manager = DramaManager()
+    def __init__(self):
+        self.drama_manager = AdminManager()
         self.storage = Storage()
-    
-    def menu_user(self, username):
-        while True:
-            print("\n" + "="*60)
-            print(f"SELAMAT DATANG, {username.upper()}!")
-            print("="*60)
-            print("1. Lihat Semua Drama Korea")
-            print("2. Tambah ke Watchlist")
-            print("3. Lihat Watchlist Saya")
-            print("4. Hapus dari Watchlist")
-            print("5. Cari Drama")
-            print("6. Logout")
-            
-            choice = input("\nPilih menu (1-6): ").strip()
-            
-            if choice == '1':
-                self.drama_manager.read_dramas()
-            elif choice == '2':
-                self.create_watchlist(username)
-            elif choice == '3':
-                self.read_watchlist(username)
-            elif choice == '4':
-                self.remove_watchlist(username)
-            elif choice == '5':
-                self.search_drama()
-            elif choice == '6':
-                print("Sampai jumpa!")
-                break
-            else:
-                print("334Pilihan tidak valid!")
     
     def create_watchlist(self, username):
         print("\n" + "="*50)
         print("TAMBAH KE WATCHLIST")
         print("="*50)
         
-        self.drama_manager.display_all_dramas()
+        self.drama_manager.read_drama()
         judul = input("\nMasukkan judul drama yang ingin ditambahkan: ").strip()
         
         dramas = self.storage.load_dramas()
@@ -95,7 +65,7 @@ class UserManager:
         print("HAPUS DARI WATCHLIST")
         print("="*50)
         
-        self.view_my_watchlist(username)
+        self.read_watchlist(username)
         
         users = self.storage.load_users()
         watchlist = users[username]["watchlist"]
@@ -108,14 +78,7 @@ class UserManager:
         if judul not in watchlist:
             print("Drama tidak ditemukan di watchlist Anda!")
             return
-        
-        confirm = input(f"Apakah Anda yakin ingin menghapus '{judul}' dari watchlist? (y/n): ").lower()
-        if confirm == 'y':
-            users[username]["watchlist"].remove(judul)
-            self.storage.save_users(users)
-            print("Drama berhasil dihapus dari watchlist!")
-        else:
-            print("Penghapusan dibatalkan.")
+
     
     def search_drama(self):
         print("\n" + "="*50)

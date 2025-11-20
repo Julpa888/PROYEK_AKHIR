@@ -1,7 +1,9 @@
 {
     "julpa": {
         "password": "321",
-        "watchlist": []
+        "watchlist": [
+            "Dear X"
+        ]
     },
     "kikan": {
         "password": "321",
@@ -13,6 +15,10 @@
     },
     "doni": {
         "password": "321",
+        "watchlist": []
+    },
+    "Kana": {
+        "password": "123",
         "watchlist": []
     }
 }

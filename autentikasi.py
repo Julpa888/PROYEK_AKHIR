@@ -5,14 +5,13 @@ from storage import Storage
 def registrasi():
     storage = Storage()
     users = storage.load_users()
-    admin = storage.load_admin() 
-
+    admin = storage.load_admin()
     print("\n=== REGISTRASI AKUN ===")
     while True:
         username = input("Masukkan username baru: ").strip()
         if username in users or username in admin:
             print("Username sudah terdaftar, coba lagi!")
-            continue  
+            continue
         password = pwinput.pwinput("Masukkan password: ")
         users[username] = {"password": password, "watchlist": []}
         storage.save_users(users)
@@ -23,7 +22,6 @@ def login():
     storage = Storage()
     users = storage.load_users()
     admin = storage.load_admin()
-
     print("\n=== LOGIN SISTEM ===")
     while True:
         username = input("Masukkan username: ").strip()
@@ -35,6 +33,7 @@ def login():
             print("Login berhasil sebagai USER!")
             return username, False
         print("Input data akun tidak valid! Coba lagi...\n")
+
 
 def login_tamu():
     print("\n== MASUK SEBAGAI TAMU ==")
