@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+=======
+feat/autentikasi
+def login():
+    print("selamat datang ")
+    username = input("Masukkan Username: ")
+    password = input("Masukkan Password: ")
+    
+    return username 
+
+
+login()
+import json
+>>>>>>> 5f7a2e58d447fc687eada3d8e140c98a5a5129d2
 import pwinput
 from storage import load_users, save_users, load_admin
 
@@ -30,3 +44,9 @@ def login():
             print("Login berhasil sebagai USER!")
             return username, False
         print("Input data akun tidak valid! Coba lagi...\n")
+<<<<<<< HEAD
+=======
+
+# testing
+main
+>>>>>>> 5f7a2e58d447fc687eada3d8e140c98a5a5129d2
