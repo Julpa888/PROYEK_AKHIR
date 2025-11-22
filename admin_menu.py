@@ -50,20 +50,21 @@ class AdminManager:
             genre = input("Genre: ").strip()
             if genre.replace(" ", "").isalpha():
                 break
-            print("Genre tidak boleh angka!")
+            print("Input Tidak Valid!")
+            
 
         while True:
             episode = input("Jumlah Episode: ").strip()
             if episode.isdigit():
                 episode = int(episode)
                 break
-            print("Episode harus berupa angka!")
+            print("Input Tidak Valid!")
 
         while True:
             status = input("Status (Finish/Ongoing): ").strip().capitalize()
             if status in ["Finish", "Ongoing"]:
                 break
-            print("Status hanya bisa 'Finish' atau 'Ongoing'!")
+            print("Input Tidak Valid!")
 
         while True:
             rating = input("Rating: ").strip()
@@ -72,6 +73,8 @@ class AdminManager:
                 break
             except ValueError:
                 print("Rating harus berupa angka!")
+            except Exception as e:
+                print(f"Input Iidak Valid : {e}")
 
         self.dramas[judul] = {
             "genre": genre,
@@ -108,7 +111,8 @@ class AdminManager:
                 break
             if genre.replace(" ", "").isalpha():
                 break
-            print("Genre tidak boleh angka!")
+            print("Input Tidak Valid!")
+            
 
         while True:
             episode = input(f"Episode [{self.dramas[judul]['episode']}]: ").strip()
@@ -117,7 +121,7 @@ class AdminManager:
             if episode.isdigit():
                 episode = int(episode)
                 break
-            print("Episode harus berupa angka!")
+            print("Input Tidak Valid!")
 
         while True:
             status = input(f"Status [{self.dramas[judul]['status']}]: ").strip()
@@ -126,7 +130,7 @@ class AdminManager:
             status = status.capitalize()
             if status in ["Finish", "Ongoing"]:
                 break
-            print("Status hanya bisa 'Finish' atau 'Ongoing'!")
+            print("Input Tidak Valid!")
 
         while True:
             rating = input(f"Rating [{self.dramas[judul]['rating']}]: ").strip()
@@ -137,6 +141,8 @@ class AdminManager:
                 break
             except ValueError:
                 print("Rating harus berupa angka!")
+            except Exception as e:
+                print(f"input Tidak valid : {e}!")
         
         if genre:
             self.dramas[judul]['genre'] = genre
