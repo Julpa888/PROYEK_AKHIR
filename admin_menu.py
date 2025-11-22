@@ -38,6 +38,9 @@ def search_drama_menu():
     print("CARI DRAMA")
     print("="*50)
     keyword = input("Masukkan judul atau genre drama: ").strip()
+    if not keyword:
+        print("drama tidak tersedia")
+        return
     results = search_drama(keyword)
     if not results:
         print("Tidak ditemukan drama dengan kata kunci tersebut.")
@@ -63,29 +66,34 @@ def create_drama():
     print("TAMBAH DRAMA BARU")
     print("="*50)
 
-    judul = input("Judul: ").strip()
-    if judul in dramas:
-        print("Drama sudah ada dalam daftar!")
-        return
+    while True:
+        judul = input("Judul: ").strip()
+        if not judul:
+            print("input tidak valid")
+            continue
+        if judul in dramas:
+            print("Drama sudah ada dalam daftar!")
+            return
+        break
 
     while True:
         genre = input("Genre: ").strip()
         if genre.replace(" ", "").isalpha():
             break
-        print("Genre tidak boleh angka!")
+        print("input tidak valid")
 
     while True:
         episode = input("Jumlah Episode: ").strip()
         if episode.isdigit():
             episode = int(episode)
             break
-        print("Episode harus berupa angka!")
+        print("input tidak valid")
 
     while True:
         status = input("Status (Finish/Ongoing): ").strip().capitalize()
         if status in ["Finish", "Ongoing"]:
             break
-        print("Status hanya bisa 'Finish' atau 'Ongoing'!")
+        print("input tidak valid")
 
     while True:
         rating = input("Rating: ").strip()
@@ -93,7 +101,7 @@ def create_drama():
             rating = float(rating)
             break
         except ValueError:
-            print("Rating harus berupa angka!")
+            print("input tidak valid")
 
     dramas[judul] = {
         "genre": genre,
@@ -141,7 +149,7 @@ def update_drama():
             break
         if genre.replace(" ", "").isalpha():
             break
-        print("Genre tidak boleh angka!")
+        print("input tidak valid")
 
     while True:
         episode = input(f"Episode [{dramas[judul]['episode']}]: ").strip()
@@ -151,7 +159,7 @@ def update_drama():
         if episode.isdigit():
             episode = int(episode)
             break
-        print("Episode harus berupa angka!")
+        print("input tidak valid")
 
     while True:
         status = input(f"Status [{dramas[judul]['status']}]: ").strip()
@@ -161,7 +169,7 @@ def update_drama():
         status = status.capitalize()
         if status in ["Finish", "Ongoing"]:
             break
-        print("Status hanya bisa 'Finish' atau 'Ongoing'!")
+        print("input tidak valid")
 
     while True:
         rating = input(f"Rating [{dramas[judul]['rating']}]: ").strip()
@@ -172,7 +180,7 @@ def update_drama():
             rating = float(rating)
             break
         except ValueError:
-            print("Rating harus berupa angka!")
+            print("input tidak valid")
 
     if genre:
         dramas[judul]['genre'] = genre
