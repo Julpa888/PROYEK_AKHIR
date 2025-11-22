@@ -18,10 +18,10 @@
         "status": "Finish"
     },
     "Goblin": {
-        "genre": "Romance",
-        "episode": "16",
-        "rating": "8.8",
-        "status": "Finish"
+        "genre": "Fantasy",
+        "episode": 20,
+        "rating": 8.9,
+        "status": "Ongoing"
     },
     "Business Proposal": {
         "genre": "Romance",
@@ -88,5 +88,11 @@
         "episode": "12",
         "rating": "8.5",
         "status": "Ongoing"
+    },
+    "kkk": {
+        "genre": "Komedi",
+        "episode": 1,
+        "status": "Ongoing",
+        "rating": 10.0
     }
 }

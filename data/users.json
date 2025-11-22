@@ -1,7 +1,10 @@
 {
     "julpa": {
         "password": "321",
-        "watchlist": []
+        "watchlist": [
+            "Dear X",
+            "kkk"
+        ]
     },
     "kikan": {
         "password": "321",
@@ -13,6 +16,34 @@
     },
     "doni": {
         "password": "321",
+        "watchlist": []
+    },
+    "Kana": {
+        "password": "123",
+        "watchlist": []
+    },
+    "kana": {
+        "password": "222",
+        "watchlist": []
+    },
+    "kkk": {
+        "password": "222",
+        "watchlist": []
+    },
+    "kkkk": {
+        "password": "222",
+        "watchlist": []
+    },
+    "//": {
+        "password": "//",
+        "watchlist": []
+    },
+    "": {
+        "password": "",
+        "watchlist": []
+    },
+    "2": {
+        "password": "2",
         "watchlist": []
     }
 }
