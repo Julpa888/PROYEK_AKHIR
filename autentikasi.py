@@ -7,10 +7,16 @@ def registrasi():
     print("\n=== REGISTRASI AKUN ===")
     while True:
         username = input("Masukkan username baru: ").strip()
+        if not username:
+            print("input tidak valid")
+            continue
         if username in storage_users or username in admin:
             print("Username sudah terdaftar, coba lagi!")
             continue
         password = pwinput.pwinput("Masukkan password: ")
+        if not password:
+            print("input tidak valid")
+            continue
         storage_users[username] = {"password": password, "watchlist": []}
         save_users(storage_users)
         print("Registrasi berhasil! Silakan login.")
@@ -23,6 +29,9 @@ def login():
     while True:
         username = input("Masukkan username: ").strip()
         password = pwinput.pwinput("Masukkan password: ")
+        if not username or not password:
+            print("input tidak valid")
+            continue
         if username in admin and password == admin[username]:
             print("Login berhasil sebagai ADMIN!")
             return username, True

@@ -11,7 +11,7 @@ def create_watchlist(username):
     judul = input("\nMasukkan judul drama yang ingin ditambahkan: ").strip()
 
     if not judul:
-        print("Judul tidak boleh kosong!")
+        print("input tidak valid")
         return
 
     dramas = load_dramas()
@@ -88,7 +88,7 @@ def remove_watchlist(username):
     judul = input("\nMasukkan judul drama yang ingin dihapus: ").strip()
 
     if not judul:
-        print("Judul tidak boleh kosong!")
+        print("input tidak valid")
         return
 
     if judul not in watchlist:
@@ -107,7 +107,7 @@ def search_drama_user():
     keyword = input("Masukkan judul atau genre drama: ").strip()
 
     if not keyword:
-        print("Kata kunci tidak boleh kosong!")
+        print("Drama tidak tersedia")
         return
 
     results = search_drama(keyword)

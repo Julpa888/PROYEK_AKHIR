@@ -88,11 +88,5 @@
         "episode": "12",
         "rating": "8.5",
         "status": "Ongoing"
-    },
-    "kkk": {
-        "genre": "Komedi",
-        "episode": 1,
-        "status": "Ongoing",
-        "rating": 10.0
     }
 }

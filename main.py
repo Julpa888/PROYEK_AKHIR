@@ -8,6 +8,16 @@ from user_menu import (
     create_watchlist, read_watchlist, remove_watchlist, search_drama_user
 )
 from storage import load_users
+import os
+
+def cls():
+    os.system("cls" if os.name == "nt" else "clear")
+
+def clear():
+    input("\nTekan ENTER untuk kembali ke menu..."); cls()
+
+def clear_2():
+    input("\nTekan ENTER untuk masuk ke menu..."); cls()
 
 ungu = Fore.MAGENTA
 
@@ -27,16 +37,22 @@ def menu_admin(username):
         opsi = input("\nPilih menu (1-7): ").strip()
         if opsi == '1':
             read_drama()
+            clear()
         elif opsi == '2':
             create_drama()
+            clear()
         elif opsi == '3':
             update_drama()
+            clear()
         elif opsi == '4':
             delete_drama()
+            clear()
         elif opsi == '5':
             read_user_watchlists()
+            clear()
         elif opsi == '6':
             search_drama_menu()
+            clear()
         elif opsi == '7':
             print("Terima kasih, Admin!")
             return
@@ -59,14 +75,19 @@ def menu_user(username):
 
         if opsi == '1':
             read_drama()
+            clear()
         elif opsi == '2':
             create_watchlist(username)
+            clear()
         elif opsi == '3':
             read_watchlist(username)
+            clear()
         elif opsi == '4':
             remove_watchlist(username)
+            clear()
         elif opsi == '5':
             search_drama_user()
+            clear()
         elif opsi == '6':
             print("Sampai jumpa!")
             return
@@ -92,6 +113,7 @@ def main():
         opsi = menu_awal()
         if opsi == "1":
             registrasi()
+            clear()
             continue
         elif opsi == "2":
             username_isadmin = login()
@@ -99,12 +121,15 @@ def main():
                 continue
             username, is_admin = username_isadmin
             if is_admin:
+                clear_2()
                 menu_admin(username)
             else:
+                clear_2()
                 menu_user(username)
         elif opsi == "3":
             print("Anda login sebagai tamu!")
             read_drama()
+            clear()
             continue
         elif opsi == "4":
             exit()
