@@ -66,9 +66,13 @@ def create_drama():
     print(f"\n{Fore.MAGENTA}{'█' * 50}")
     print(f"{Fore.YELLOW}➕ TAMBAH DRAMA BARU ➕")
     print(f"{Fore.MAGENTA}{'█' * 50}{Style.RESET_ALL}")
+    print(f"{Fore.YELLOW}(Ketik 'cancel' kapan saja untuk membatalkan)\n{Style.RESET_ALL}")
 
     while True:
         judul = input(f"{Fore.CYAN}Judul: {Style.RESET_ALL}").strip()
+        if judul.lower() == 'cancel':
+            print(f"{Fore.YELLOW}⏹️  Pembatalan penambahan drama.")
+            return
         if not judul:
             print(f"{Fore.RED}❌ input tidak valid")
             continue
@@ -79,25 +83,38 @@ def create_drama():
 
     while True:
         genre = input(f"{Fore.CYAN}Genre: {Style.RESET_ALL}").strip()
+        if genre.lower() == 'cancel':
+            print(f"{Fore.YELLOW}⏹️  Pembatalan penambahan drama.")
+            return
         if genre.replace(" ", "").isalpha():
             break
         print(f"{Fore.RED}❌ input tidak valid")
 
     while True:
         episode = input(f"{Fore.CYAN}Jumlah Episode: {Style.RESET_ALL}").strip()
+        if episode.lower() == 'cancel':
+            print(f"{Fore.YELLOW}⏹️  Pembatalan penambahan drama.")
+            return
         if episode.isdigit():
             episode = int(episode)
             break
         print(f"{Fore.RED}❌ input tidak valid")
 
     while True:
-        status = input(f"{Fore.CYAN}Status (Finish/Ongoing): {Style.RESET_ALL}").strip().capitalize()
+        status = input(f"{Fore.CYAN}Status (Finish/Ongoing): {Style.RESET_ALL}").strip()
+        if status.lower() == 'cancel':
+            print(f"{Fore.YELLOW}⏹️  Pembatalan penambahan drama.")
+            return
+        status = status.capitalize()
         if status in ["Finish", "Ongoing"]:
             break
         print(f"{Fore.RED}❌ input tidak valid")
 
     while True:
         rating = input(f"{Fore.CYAN}Rating (0.0-10): {Style.RESET_ALL}").strip()
+        if rating.lower() == 'cancel':
+            print(f"{Fore.YELLOW}⏹️  Pembatalan penambahan drama.")
+            return
         try:
             rating = float(rating)
             if 0.0 <= rating <= 10.0:
