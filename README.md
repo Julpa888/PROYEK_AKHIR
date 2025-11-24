@@ -84,14 +84,7 @@ pip install -r requirements.txt
 
 ### Jalankan Aplikasi
 
-**Recommended (dari project root):**
 ```bash
-python run.py
-```
-
-**Alternative (dari src directory):**
-```bash
-cd src
 python main.py
 ```
 
@@ -151,7 +144,7 @@ PROYEK_AKHIR/
 │   ├── autentikasi.py     # Login/Register
 │   ├── admin_menu.py      # Admin features
 │   ├── user_menu.py       # User features
-│   └── storage.py         # Data management
+│   ├── storage.py         # Data management
 ├── data/                  # Data storage (JSON)
 │   ├── admin.json
 │   ├── users.json
@@ -160,7 +153,7 @@ PROYEK_AKHIR/
 ├── config/                # Configuration
 ├── docs/                  # Documentation
 │   └── PROJECT_STRUCTURE.md
-├── run.py                 # Application wrapper
+├── main.py                # Application entry point
 ├── requirements.txt       # Dependencies
 ├── .gitignore
 └── README.md

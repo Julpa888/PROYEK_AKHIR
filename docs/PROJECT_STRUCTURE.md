@@ -7,7 +7,7 @@ PROYEK_AKHIR/
 │
 ├── src/                          # Main application source code
 │   ├── __init__.py              # Package initialization
-│   ├── main.py                  # Application entry point
+│   ├── main.py                  # Application core logic
 │   ├── autentikasi.py           # Authentication module (login/register)
 │   ├── admin_menu.py            # Admin panel features
 │   ├── user_menu.py             # User menu features
@@ -27,12 +27,10 @@ PROYEK_AKHIR/
 ├── docs/                         # Additional documentation
 │   └── ARCHITECTURE.md          # Architecture overview
 │
-├── run.py                        # Application entry point (wrapper)
-├── main.py                       # Symlink to src/main.py (deprecated)
+├── main.py                       # Application entry point (at root)
 ├── requirements.txt              # Python dependencies
 ├── .gitignore                    # Git ignore file
-├── README.md                     # Project documentation
-└── __pycache__/                  # Python cache (auto-generated)
+└── README.md                     # Project documentation
 ```
 
 ## Directory Descriptions
@@ -70,34 +68,34 @@ Additional documentation and architecture guides.
 
 ## How to Run
 
-### Method 1: Using wrapper script (Recommended)
+### Simple (Recommended)
 ```bash
-python run.py
+python main.py
 ```
 
-### Method 2: Direct from src/
+### From src directory
 ```bash
 cd src
 python main.py
 ```
 
-### Method 3: With virtual environment
+### With virtual environment
 ```bash
 # Activate venv
 .\.venv\Scripts\Activate.ps1
 
 # Run application
-python run.py
+python main.py
 ```
 
 ## Import Path Resolution
 
-The `run.py` wrapper automatically adds `src/` to Python's path, allowing:
+The `main.py` at root automatically adds `src/` to Python's path, allowing:
 - Modules in `src/` to import each other directly
 - Data files in `/data` to be found correctly
 - Relative paths to work from project root
 
-This design allows running from project root without manual path manipulation.
+This design allows running directly from project root without any hassle.
 
 ## Benefits of This Structure
 
@@ -121,4 +119,5 @@ This design allows running from project root without manual path manipulation.
 
 - `__pycache__/` and `.pyc` files are automatically generated and ignored by `.gitignore`
 - All relative paths in `storage.py` resolve from project root
-- The wrapper script `run.py` must stay in project root
+- The `main.py` file at project root is the entry point
+- Source code in `src/` remains modular and reusable
