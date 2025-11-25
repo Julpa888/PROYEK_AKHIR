@@ -1,5 +1,5 @@
 from colorama import Fore, Style
-from autentikasi import registrasi, login
+from autentikasi import registrasi, login, valid_password
 from admin_menu import (
     read_drama, create_drama, update_drama, delete_drama,
     read_user_watchlists, search_drama_menu
