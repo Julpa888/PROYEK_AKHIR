@@ -1,3 +1,15 @@
+ori_input = input
+def input(prompt=""):
+    while True:
+        v = ori_input(prompt)
+        if v.strip() == "":         
+            print("Input tidak boleh kosong!")
+            continue
+        if v != v.strip():         
+            print("Tidak boleh ada spasi di awal atau akhir input")
+            continue
+        return v                    
+
 from prettytable import PrettyTable
 from colorama import Fore, Style
 from storage import load_dramas, save_dramas, load_users, save_users
@@ -37,7 +49,6 @@ def search_drama(keyword):
             hasil[judul] = data
     return hasil
 
-
 def search_drama_menu():
     print(f"\n{Fore.RED}{'█' * 50}")
     print(f"{Fore.YELLOW}🔍 CARI DRAMA 🔍")
@@ -71,7 +82,6 @@ def search_drama_menu():
         ])
     print(f"{Fore.GREEN}Hasil pencarian untuk '{keyword}':")
     print(table)
-
 
 def create_drama():
     dramas = load_dramas()
@@ -235,7 +245,6 @@ def update_drama():
     save_dramas(dramas)
     print(f"{Fore.GREEN}Data drama berhasil diupdate!")
 
-
 def delete_drama():
     dramas = load_dramas()
 
@@ -276,7 +285,6 @@ def delete_drama():
     save_users(users)
 
     print(f"{Fore.GREEN}Drama berhasil dihapus!")
-
 
 def read_user_watchlists():
     users = load_users()

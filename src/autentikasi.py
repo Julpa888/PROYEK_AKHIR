@@ -1,3 +1,15 @@
+ori_input = input
+def input(prompt=""):
+    while True:
+        v = ori_input(prompt)
+        if v.strip() == "":         
+            print("Input tidak boleh kosong!")
+            continue
+        if v != v.strip():         
+            print("Tidak boleh ada spasi di awal atau akhir input")
+            continue
+        return v                    
+
 try:
     import pwinput
     _has_pwinput = True
@@ -7,7 +19,6 @@ except Exception:
 
 from colorama import Fore, Style
 from storage import load_users, save_users, load_admin
-
 
 def _get_password(prompt: str) -> str:
     if _has_pwinput:

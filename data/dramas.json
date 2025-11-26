@@ -12,10 +12,10 @@
         "status": "Finish"
     },
     "Squid Game": {
-        "genre": "Horror",
+        "genre": "Thriller",
         "episode": 100,
-        "rating": 0.1,
-        "status": "Ongoing"
+        "rating": 7.2,
+        "status": "Finish"
     },
     "Goblin": {
         "genre": "Romance",
@@ -88,17 +88,5 @@
         "episode": "12",
         "rating": "8.5",
         "status": "Ongoing"
-    },
-    "Vagabond": {
-        "genre": "Action",
-        "episode": 20,
-        "status": "Finish",
-        "rating": 0.8
-    },
-    "Tes": {
-        "genre": "Crime",
-        "episode": 20,
-        "status": "Finish",
-        "rating": 10.0
     }
 }
