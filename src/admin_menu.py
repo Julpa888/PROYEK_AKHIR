@@ -155,6 +155,9 @@ def update_drama():
     print(table)
 
     judul_input = input(f"\n{Fore.CYAN}Masukkan judul drama yang ingin diupdate: {Style.RESET_ALL}").strip()
+    if not judul_input:
+        print(f"{Fore.RED}Input tidak valid!")
+        return
 
     judul_ditemukan = None
     for j in dramas:
@@ -250,6 +253,9 @@ def delete_drama():
     print(table)
 
     judul_input = input(f"\n{Fore.CYAN}Masukkan judul drama yang ingin dihapus: {Style.RESET_ALL}").strip()
+    if not judul_input:
+        print(f"{Fore.RED}Input tidak valid!")
+        return
 
     judul_ditemukan = None
     for j in dramas:
@@ -258,7 +264,7 @@ def delete_drama():
             break
 
     if not judul_ditemukan:
-        print(f"{Fore.RED}Drama tidak ditemukan/input tidak boleh kosong!")
+        print(f"{Fore.RED}Drama tidak ditemukan!")
         return
 
     judul = judul_ditemukan
@@ -270,6 +276,7 @@ def delete_drama():
     save_users(users)
 
     print(f"{Fore.GREEN}Drama berhasil dihapus!")
+
 
 def read_user_watchlists():
     users = load_users()
